@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel='stylesheet' href='css/font-hack.css'>
+
+
+    <!-- <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css"> -->
+
+
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" href="css/binary-background.css">
@@ -20,71 +20,49 @@
 </head>
 
 <body>
-    <div class="jumbotron bg-transparent mb-0 radius-0">
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col text-center">
-                    
-                        <h1 class="display-2">Crack the <span class="vim-caret">coin</span></h1>
-                        <div class="lead mb-3 text-mono text-success">Ingrese su nombre de invitado y contraseña</div>
-                        <div class="text-darkgrey text-mono my-2">estos datos se encuentran en la invitación</div>
+    <div class="text-center textos">
+        <h1>Crack the <span class="vim-caret">coin</span></h1>
+        <h2 class="mt-3 text-mono text-success">Ingrese su nombre de invitado y contraseña</h2>
+        <h3 class="text-darkgrey text-mono my-2 mb-5">estos datos se encuentran en la invitación</h3>
 
-                        <form class="needs-validation" action="userpanel.html" novalidate>
-
-                            <div class="row">
-                                <div class="col-3"></div>
-                                <div class="col-6">
-                                    <label for="firstName">Nombre</label>
-                                    <input type="text" class="form-control capture" id="firstName" placeholder=""
-                                        value="" required>
-
-                                </div>
-                            </div>
-
-                            <div class="row my-2">
-                                <div class="col-3"></div>
-                                <div class="align-items-center col-6">
-                                    <label for="lastName">Contraseña</label>
-                                    <input type="text" class="form-control capture" id="lastName" placeholder=""
-                                        value="" required>
-
-                                </div>
-                            </div>
+        <form action="userpanel.html" novalidate>
 
 
-                            <div class="text-mono">
-                                <input type="submit" value="Ingresar"
-                                    class="btn btn-success btn-shadow px-3 my-2 ml-0 text-left capture">
-                            </div>
-                        </form>
-                    
+            <label for="name">
+                <h3>Nombre:</h3>
+            </label>
+            <br>
+            <h2><input type="text" class="capture" id="name" name="name" required></h2>
+            <br>
+            <label for="password">
+                <h3>Contraseña:</h3>
+            </label>
+            <br>
+            <h2><input type="text" class="capture" id="password" name="password" required></h2>
+
+            <div class="text-mono">
+                <input type="submit" value="Ingresar"
+                    class="btn btn-success btn-shadow px-3 my-2 ml-0 text-left capture">
+            </div>
+        </form>
+    </div>
+    </div>
 
 
-                    <!-- <p class="mt-5 text-grey text-spacey">
+
+
+
+
+    <!-- <p class="mt-5 text-grey text-spacey">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, dignissimos provident.
                         Alias, aliquid, cum cumque deleniti dignissimos eos exercitationem explicabo illum inventore
                         laboriosam nihil nobis nostrum praesentium recusandae sequi, sint!
                     </p> -->
-                </div>
-            </div>
-        </div>
-    </div>
 
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- JavaScript -->
 
     <script src="js/bootstrap.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    <script src="js/keys.js"></script>
 </body>
 
 </html>

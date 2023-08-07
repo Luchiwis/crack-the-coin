@@ -6,186 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+
+    <!-- <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css"> -->
+
+
+    <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="css/binary-background.css">
     <script src="js/binary-background.js" defer></script>
-
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css">
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="bg-transparent mt-4 radius-0 ">
-        <div class="container">
-            <div class="row">
-                <div class="col text-center">
+    <div>
+        <h3><a href="index" style="position: fixed; margin-left: 150px; border-radius: 10px;" class="capture">salir</a></h3>
+    </div>
+    <div class="bg-transparent mt-4 ">
+        <div class="text-center">
+            <h1>Bienvenido XXXX</h1>
+            <h2>Selecciona un candado para desbloquear</h2>
 
-                    <h1 class="display-2 capture">Panel de contraseñas</h1>
-                    <p class="lead mb-3 text-mono text-success">Para desbloquear el premio desbloquee los 5
-                        candados
-                    </p>
-                    <p class="text-darkgrey text-mono my-2">las contraseñas se encuentran distribuidas por la
-                        fiesta
-                    </p>
+            <!-- ---------------- -->
 
-
-                    <!-- ---------------- -->
-
-                    <div class="accordion .accordion-flush" id="accordioncandados">
-
-                        <div class="acc-item btn bg-primary capture">
-                            <h2 class="accordion-header" id="heading1">
-                                <button class="accordion-button collapsed bg-primary" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false"
-                                    aria-controls="collapse1">
-                                    Candado 1 🔒
-                                </button>
-                            </h2>
-                            <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1"
-                                data-bs-parent="#accordioncandados">
-                                <div class="accordion-body">
-                                    <div class="candado" id="candado1">
-                                        <h3>Amigate con un extraño</h3>
-                                        <p>la persona indicada para resolver este candado es {{}}, aunque el no lo sepa,
-                                            tiene la
-                                            respuesta a la pregunta que te estas haciendo</p>
-                                        <form action=>
-                                            <input type="text" name="contra1" value="">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="acc-item btn bg-primary capture">
-                            <h2 class="accordion-header" id="heading2">
-                                <button class="accordion-button collapsed bg-primary " type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false"
-                                    aria-controls="collapse2">
-                                    Candado 2 🔒
-                                </button>
-                            </h2>
-                            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
-                                data-bs-parent="#accordioncandados">
-                                <div class="accordion-body">
-                                    <div class="candado" id="candado2">
-                                        <h3>Los Hosts</h3>
-                                        <p>Los "hosts" son personas que se encuentran entre nosotros. Entre todos los
-                                            invitados de esta
-                                            fiesta hay 15 hosts. La clave para resolver este candado es ganar
-                                            suficientes partidas de
-                                            juegos de mesa.</p>
-                                            <form action=>
-                                                <input type="text" name="contra2" value="">
-                                            </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="acc-item btn bg-primary capture">
-                            <h2 class="accordion-header" id="heading3">
-                                <button class="accordion-button collapsed bg-primary " type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false"
-                                    aria-controls="collapse3">
-                                    Candado 3 🔒
-                                </button>
-                            </h2>
-                            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
-                                data-bs-parent="#accordioncandados">
-                                <div class="accordion-body">
-                                    <div class="candado" id="candado3">
-                                        <h3>Trivia</h3>
-                                        <p>Hoy en dia todos tenemos un telefono...</p>
-                                        <img src="images/qr.png" alt="QR no encontrado"><br>
-                                        <form action=>
-                                            <input type="text" name="contra3" value="">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="acc-item btn bg-primary capture">
-                            <h2 class="accordion-header" id="heading4">
-                                <button class="accordion-button collapsed bg-primary " type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false"
-                                    aria-controls="collapse4">
-                                    Candado 4 🔒
-                                </button>
-                            </h2>
-                            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
-                                data-bs-parent="#accordioncandados">
-                                <div class="accordion-body">
-                                    <div class="candado" id="candado4">
-                                        <h3>Busqueda del tesoro</h3>
-                                        <p>Es evidente que estas en una casa muy grande, sin embargo, las pistas para
-                                            desbloquear este
-                                            candado se encuentran en tu entorno...</p>
-                                        <p class="text-muted">mucha suerte y cuidado con romper o mover cosas. El primer
-                                            piso no está
-                                            habilitado para subir</p>
-                                            <form action=>
-                                                <input type="text" name="contra4" value="">
-                                            </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="acc-item btn bg-primary capture">
-                            <h2 class="accordion-header" id="heading5">
-                                <button class="accordion-button collapsed bg-primary " type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false"
-                                    aria-controls="collapse5">
-                                    Candado 5 🔒
-                                </button>
-                            </h2>
-                            <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5"
-                                data-bs-parent="#accordioncandados">
-                                <div class="accordion-body">
-                                    <div class="candado" id="candado5">
-                                        <h3>Rompecabezas</h3>
-                                        <p>En la morada de lo desconocido me encuentro,
-                                            un tesoro protegido, un misterio por resolver.
-
-                                            Busca por doquier, en rincones escondidos,
-                                            las piezas que encajan, para abrir el camino.
-
-                                            La primera pista en la casa se halla,
-                                            una incógnita que aguarda, lista para ser revelada.
-
-                                            Explora con cuidado, el secreto está disperso,
-                                            sigue cada pista, no te rindas, persevero.
-
-                                            En lugares insospechados, las piezas se esconden,
-                                            junta la sabiduría, mientras los minutos se desmoronen.
-
-                                            El enigma se revela, si prestas atención,
-                                            la solución hallarás, con ingenio y pasión.
-
-                                            ¿Cuál es el objeto que desbloquea el misterio?
-                                            Encuentra la respuesta, y el tesoro será tuyo, sincero.</p>
-                                        <p class="text-muted">mucha suerte y cuidado con romper o mover cosas. El primer
-                                            piso no está
-                                            habilitado para subir</p>
-                                            <form action=>
-                                                <input type="text" name="contra5" value="">
-                                            </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
+            <a href="lock1" class="candado bloqueado capture">
+                <div class="imagen">
+                    <h1>1</h1>
                 </div>
-            </div>
+                <div class="selector">
+                    
+                </div>
+            </a>
+
+            <a href="lock2" class="candado bloqueado capture">
+                <div class="imagen">
+                    <h1>2</h1>
+                </div>
+                <div class="selector">
+                    
+                </div>
+            </a>
+            <br>
+            <a href="lock3" class="candado bloqueado capture">
+                <div class="imagen">
+                    <h1>3</h1>
+                </div>
+                <div class="selector">
+                    
+                </div>
+            </a>
+
+            <a href="lock4" class="candado bloqueado capture">
+                <div class="imagen">
+                    <h1>4</h1>
+                </div>
+                <div class="selector">
+                    
+                </div>
+            </a>
+
+
+
         </div>
     </div>
 
@@ -203,7 +84,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    <script src="js/keys.js"></script>
 </body>
 
 </html>

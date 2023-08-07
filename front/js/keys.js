@@ -4,7 +4,7 @@ const elements = document.querySelectorAll(".capture");
 // Set the initial focus index to the first element
 let currentFocusIndex = 0;
 let cooldown = false;
-const cooldownTime = 500; // Set the cooldown time in milliseconds
+const cooldownTime = 200; // Set the cooldown time in milliseconds
 let current_element = elements[currentFocusIndex];
 current_element.classList.add("focused");
 
@@ -15,17 +15,22 @@ document.addEventListener("keydown", (event) => {
     return; // If cooldown is active, don't do anything
   }
 
-  // Remove the 'focused' class from the currently focused element
-  current_element.classList.remove("focused");
 
   // Update the currentFocusIndex based on the arrow key pressed
-  if (key === "ArrowDown" && currentFocusIndex < elements.length - 1) {
+  if ((key === "ArrowDown" || key === "ArrowRight") && currentFocusIndex < elements.length - 1) {
+    // Remove the 'focused' class from the currently focused element
+    current_element.classList.remove("focused");
     currentFocusIndex++;
     current_element = elements[currentFocusIndex];
-  } else if (key === "ArrowUp" && currentFocusIndex > 0) {
+  } else if ((key === "ArrowUp" || key === "ArrowLeft") && currentFocusIndex > 0) {
+    // Remove the 'focused' class from the currently focused element
+    current_element.classList.remove("focused");
     currentFocusIndex--;
     current_element = elements[currentFocusIndex];
-  } else {
+  } else if (key === "Enter") {
+    // If the user presses Enter, click the currently focused element
+    current_element.click();
+  }else {
     return;
   }
 
@@ -33,12 +38,9 @@ document.addEventListener("keydown", (event) => {
   current_element.classList.add("focused");
   setTimeout(() => {current_element.scrollIntoView({ behavior: "smooth" });}, 200);
 
-  if (current_element.classList.contains("acc-item")) {
-    current_element.querySelector("button").click();
-    current_element.querySelector("input").focus();
-  } else {
-    current_element.focus();
-  }
+
+  current_element.focus();
+
 
   cooldown = true;
   setTimeout(() => {

@@ -1,33 +1,103 @@
 body{
-  overflow: hidden; /* Hide scrollbars */
+  overflow: hidden;
+
+    margin: 0;
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #e4e2ff;
+    text-align: left;
+    background-color: #0c0d16;
+    
 }
 
-.btn-success:focus {
-  color: #28293e;
+h1{
+  font-size: 6rem;
+}
+h2{
+  font-size: 4rem;
+}
+h3{
+  font-size: 2.8rem;
+}
+a{
+  text-decoration: none;
 }
 
 .candado {
   border: 1px solid #ccc;
-  margin: 20px;
+  margin: auto;
   padding: 10px;
-  width: 300px;
+  width: 20rem;
+  color: white;
+  border-radius: 50px;
+  display: inline-block;
+  margin: 40px;
+  margin-bottom: 0px;
+  margin-top: 20px;
 }
-.acc-item{
-    background-color: #28293e;
-    color: #fff;
-    border-radius: 5px;
-    margin: 20px;
+.candado .imagen img{
+  visibility: hidden;
 }
-.accordion-header button{
-    font-size: 1.8rem;
+.bloqueado{
+  background-color: #420505;
+  color: #420505;
+}
+.desbloqueado{
+  background-color: #175a27;
+  color: #175a27;
 
 }
-
-.candado{
-    background-color: #28293e;
-    width: 100%;
-    margin: auto !important;
-
+.bloqueado .imagen{
+  background-image: url("../images/lock-locked.png");
+}
+.desbloqueado .imagen{
+  background-image: url("../images/lock-unlocked.png");
+}
+.candado .imagen{
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+}
+.candado .imagen h1{
+  padding-top: 50%;
+  font-size: 7rem;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-/* Path: css\style.css */
+.candado .imagen{
+  width: 80%;
+  margin: auto;
+  padding: 1%;
+}
+
+.focused {
+  border: 5px groove #ccc;
+}
+
+.textos{
+  margin: auto;
+  width: 80%;
+  padding: 1%;
+  text-align: center;
+}
+
+.btn-success{
+  background-color: #175a27;
+  border-color: #175a27;
+}
+
+input[type="text"]{
+  width: 70%;
+  border-radius: 20px;
+  text-align: center;
+}
+input[type="submit"]{
+  width: 30%;
+  border-radius: 20px;
+  height: 80px;
+  margin-top: 20px;
+  font-size: 2.8rem;
+}

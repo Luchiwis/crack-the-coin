@@ -1,0 +1,33 @@
+body{
+  overflow: hidden; /* Hide scrollbars */
+}
+
+.btn-success:focus {
+  color: #28293e;
+}
+
+.candado {
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 10px;
+  width: 300px;
+}
+.acc-item{
+    background-color: #28293e;
+    color: #fff;
+    border-radius: 5px;
+    margin: 20px;
+}
+.accordion-header button{
+    font-size: 1.8rem;
+
+}
+
+.candado{
+    background-color: #28293e;
+    width: 100%;
+    margin: auto !important;
+
+}
+
+/* Path: css\style.css */
