@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from . import models
+from django.utils import timezone
 # Create your views here.
 
 def login(request):
@@ -10,6 +11,11 @@ def login(request):
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
         if user is not None:
+            # create account if not exists
+            # if not models.Account.objects.filter(user=user).exists():
+            #     account = models.Account(user=user)
+            #     account.first_login = timezone.now()
+            #     account.save()
             auth_login(request, user)
             return redirect("/userpanel")
         else:
@@ -33,11 +39,7 @@ def lock1(request):
         code = request.POST["code"]
         
     
-
-    if not request.user.soulmate:
-        # get first user sorted by last registration date
-        request.user.soulmate = models.User.objects.order_by("registered")[0]
-        print(request.user.soulmate.username, "is", request.user.username, "'s soulmate")
+    print(request.user.user)
 
     ctx = {"user": request.user}
     return render(request, "lock1.html", ctx)

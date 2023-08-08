@@ -1,19 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model
 
 # Create your models here.
 
-
-
-class User(User):
+class Account(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
 
     lock1 = models.BooleanField(default=False)
     lock2 = models.BooleanField(default=False)
     lock3 = models.BooleanField(default=False)
     lock4 = models.BooleanField(default=False)
 
-    # first_login = models.DateTimeField(null=True, blank=True)
+    first_login = models.DateTimeField(null=True, blank=True)
     soulmate = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
     winner = models.BooleanField(default=False)
     winned_date = models.DateTimeField(null=True, blank=True)
