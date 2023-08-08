@@ -11,11 +11,13 @@ def login(request):
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            # create account if not exists
-            # if not models.Account.objects.filter(user=user).exists():
-            #     account = models.Account(user=user)
-            #     account.first_login = timezone.now()
-            #     account.save()
+            # first login check
+            if user.jugador.first_login is None:
+                user.jugador.first_login = timezone.now()
+                user.jugador.save()
+                print("first logged in:", user.username, user.jugador.first_login)
+            else:
+                print("logged in:", user.username)
             auth_login(request, user)
             return redirect("/userpanel")
         else:
@@ -29,7 +31,12 @@ def login(request):
 @login_required
 def userpanel(request):
     user = request.user
-    print(user.username, "logged in")
+    print(user.username, "showing pannel for:", request.user.username)
+    # set soulmate to the last user who logged in
+    if user.jugador.soulmate is None:
+        user.jugador.soulmate = models.Jugador.objects.filter(winner=False).order_by("-first_login")[1]
+        user.jugador.save()
+        print("soulmate of ", user.username ," set to:", user.jugador.soulmate.username)
     ctx = {"user": user}
     return render(request, "userpanel.html", ctx)
 
@@ -39,7 +46,7 @@ def lock1(request):
         code = request.POST["code"]
         
     
-    print(request.user.user)
+    print("showing lock1 for:", request.user.username)
 
     ctx = {"user": request.user}
     return render(request, "lock1.html", ctx)

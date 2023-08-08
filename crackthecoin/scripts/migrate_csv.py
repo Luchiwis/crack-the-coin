@@ -7,14 +7,16 @@ def import_users_from_csv(csv_file):
     with open(csv_file) as f:
         reader = csv.reader(f)
         for row in reader:
-            print(row)
+            answer = input("migrate this?:" + str(row))
+            if answer == "n":
+                continue
             username = row[0]
             password = row[1]
             user = User(username=username)
             user.set_password(password)
             user.save()
-            break
+            print("migrated:", user.username, user.password)
 
 if __name__ == "__main__":
-    csv_file_path = 'Invitados_Luciofest.csv'
+    csv_file_path = 'scripts/Invitados_Luciofest.csv'
     import_users_from_csv(csv_file_path)

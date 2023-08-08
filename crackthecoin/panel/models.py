@@ -30,6 +30,8 @@ class token_code(models.Model):
     def __str__(self):
         return self.code
     
+
+# create jugador when user is created
 @receiver(models.signals.post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
