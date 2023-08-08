@@ -1,10 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.dispatch import receiver
 
 # Create your models here.
 
-class Account(models.Model):
+class Jugador(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    username = models.CharField(max_length=100, null=True, blank=True)
+    password = models.CharField(max_length=100, null=True, blank=True)
 
     lock1 = models.BooleanField(default=False)
     lock2 = models.BooleanField(default=False)
@@ -26,3 +29,8 @@ class token_code(models.Model):
     used_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     def __str__(self):
         return self.code
+    
+@receiver(models.signals.post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Jugador.objects.create(user=instance, username=instance.username, password=instance.password)
