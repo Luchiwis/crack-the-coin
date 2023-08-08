@@ -1,0 +1,22 @@
+{% extends 'base_lock.html' %}
+
+{% block content %}
+<div class="bg-transparent mt-4 ">
+    <div class="text-center textos">
+        <h1>Candado 1</h1>
+        <h2>Encontrá a tu amigo invisible</h2>
+        <h3>en esta fiesta todos tienen una persona especial que atesora la contraseña que se necesita para
+            desbloquear este candado...</h3>
+        <h3>En tu caso esa persona se llama: {{user.soulmate}}</h3>
+        <h3>Buscalo y pedile su codigo de invitado para desbloquear este candado. Una vez que lo tengas, ingresalo
+            en el siguiente campo y presiona el boton para desbloquear</h3>
+        <br>
+        <form action="">
+            <h2><input type="text" placeholder="**********" class="text-center" maxlength="10"></h2>
+            <button type="submit" class="btn btn-success">
+                <h3>Desbloquear</h3>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base_userpanel.html' %}
+
+{% block content %}
+<div class="bg-transparent mt-4 ">
+    <div class="text-center">
+        <h1 style="width: 50%; margin:auto;">Bienvenido {{user.username}}</h1>
+        <h2>Selecciona un candado para desbloquear</h2>
+
+        <!-- ---------------- -->
+
+        <a href="lock1" class="candado bloqueado capture">
+            <div class="imagen">
+                <h1>1</h1>
+            </div>
+            <div class="selector">
+
+            </div>
+        </a>
+
+        <a href="lock2" class="candado bloqueado capture">
+            <div class="imagen">
+                <h1>2</h1>
+            </div>
+            <div class="selector">
+
+            </div>
+        </a>
+        <br>
+        <a href="lock3" class="candado bloqueado capture">
+            <div class="imagen">
+                <h1>3</h1>
+            </div>
+            <div class="selector">
+
+            </div>
+        </a>
+
+        <a href="lock4" class="candado bloqueado capture">
+            <div class="imagen">
+                <h1>4</h1>
+            </div>
+            <div class="selector">
+
+            </div>
+        </a>
+
+
+
+    </div>
+</div>
+{% endblock %}

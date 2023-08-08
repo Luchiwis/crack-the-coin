@@ -17,12 +17,12 @@ document.addEventListener("keydown", (event) => {
 
 
   // Update the currentFocusIndex based on the arrow key pressed
-  if ((key === "ArrowDown" || key === "ArrowRight") && currentFocusIndex < elements.length - 1) {
+  if ((key === "ArrowDown") && currentFocusIndex < elements.length - 1) {
     // Remove the 'focused' class from the currently focused element
     current_element.classList.remove("focused");
     currentFocusIndex++;
     current_element = elements[currentFocusIndex];
-  } else if ((key === "ArrowUp" || key === "ArrowLeft") && currentFocusIndex > 0) {
+  } else if ((key === "ArrowUp") && currentFocusIndex > 0) {
     // Remove the 'focused' class from the currently focused element
     current_element.classList.remove("focused");
     currentFocusIndex--;

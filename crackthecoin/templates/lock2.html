@@ -1,0 +1,20 @@
+{% extends 'base_lock.html' %}
+
+{% block content %}
+<div class="bg-transparent mt-4 ">
+    <div class="text-center textos">
+        <h1>Candado 2</h1>
+        <h2>Los juegos de mesa</h2>
+        <h3>Entre todos los invitados hay ciertas personas que cumplen el rol de "hosts"</h3>
+        <h3>Si logras ganarle en algun juego de mesa, o ganar en el mismo equipo de algun host, este te dará una
+            contraseña que podes utilizar para abrir este candado</h3>
+        <br>
+        <form action="">
+            <h2><input type="text" placeholder="**********" class="text-center" maxlength="10"></h2>
+            <button type="submit" class="btn btn-success">
+                <h3>Desbloquear</h3>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
