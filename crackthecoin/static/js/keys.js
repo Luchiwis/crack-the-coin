@@ -10,13 +10,19 @@ current_element.classList.add("focused");
 let gamepad;
 let controllerIndex = 0;
 let releasedButtons = {
-  "A": true,
-  "B": true,
-  "Up": true,
-  "Down": true,
-  "Left": true,
-  "Right": true,
+  A: true,
+  B: true,
+  Up: true,
+  Down: true,
+  Left: true,
+  Right: true,
 };
+
+function audioPlay(audioName) {
+  audio = document.querySelector("#" + audioName + "_audio")
+  audio.currentTime = 0;
+  audio.play();
+}
 
 let lastPressedTimestamp = getCurrentTimestamp();
 function getCurrentTimestamp() {
@@ -38,18 +44,30 @@ window.addEventListener("gamepaddisconnected", (event) => {
 function backspace() {
   console.log("Backspace pressed");
   //check if is an input text and if it has some text
-  if (current_element.tagName == "INPUT" && current_element.type == "text" && current_element.value.length > 0) {
+  if (
+    current_element.tagName == "INPUT" &&
+    current_element.type == "text" &&
+    current_element.value.length > 0
+  ) {
     current_element.value = current_element.value.slice(0, -1);
+  }
+  else if (current_element.value.length <= 0){
+    audioPlay("error");
   }
 }
 
 function update() {
   gamepad = navigator.getGamepads()[controllerIndex];
 
-  if (gamepad && (!lastPressedTimestamp || getCurrentTimestamp() - lastPressedTimestamp > 100)) {
+  if (
+    gamepad &&
+    (!lastPressedTimestamp ||
+      getCurrentTimestamp() - lastPressedTimestamp > 100)
+  ) {
     if (gamepad.buttons[0].pressed && releasedButtons["A"]) {
       console.log("A pressed");
       current_element.click();
+
       releasedButtons["A"] = false;
     } else if (!gamepad.buttons[0].pressed) {
       releasedButtons["A"] = true;
@@ -66,6 +84,7 @@ function update() {
     if (gamepad.axes[0] > 0.5 && releasedButtons["Up"]) {
       console.log("Up pressed");
       currentFocusIndex--;
+      audioPlay("chk");
       releasedButtons["Up"] = false;
     } else if (gamepad.axes[0] < 0.5) {
       releasedButtons["Up"] = true;
@@ -74,6 +93,7 @@ function update() {
     if (gamepad.axes[0] < -0.5 && releasedButtons["Down"]) {
       console.log("Down pressed");
       currentFocusIndex++;
+      audioPlay("chk");
       releasedButtons["Down"] = false;
     } else if (gamepad.axes[0] > -0.5) {
       releasedButtons["Down"] = true;
@@ -81,6 +101,7 @@ function update() {
 
     if (gamepad.axes[1] > 0.5 && releasedButtons["Right"]) {
       console.log("Right pressed");
+      audioPlay("chk");
       releasedButtons["Right"] = false;
     } else if (gamepad.axes[1] <= 0.5) {
       releasedButtons["Right"] = true;
@@ -88,6 +109,7 @@ function update() {
 
     if (gamepad.axes[1] < -0.5 && releasedButtons["Left"]) {
       console.log("Left pressed");
+      audioPlay("chk");
       releasedButtons["Left"] = false;
     } else if (gamepad.axes[1] >= -0.5) {
       releasedButtons["Left"] = true;

@@ -22,9 +22,9 @@
 </head>
 
 <body>
-    <div>
-        <h3><a href="/" style="position: fixed; margin-left: 150px; border-radius: 10px;" class="capture">salir</a></h3>
-    </div>
+    <audio src="{% static 'audio/chk.wav' %}" id="chk_audio"></audio>
+    <audio src="{% static 'audio/error.wav' %}" id="error_audio"></audio>
+    <audio src="{% static 'audio/desbloqueo.wav' %}" id="desbloqueo_audio"></audio>
     {% block content %}
 
     {% endblock %}

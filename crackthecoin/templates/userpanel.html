@@ -1,6 +1,9 @@
-{% extends 'base_userpanel.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
+<div>
+    <h3><a href="/" style="position: fixed; margin-left: 150px; border-radius: 10px;" class="capture">salir</a></h3>
+</div>
 <div class="bg-transparent mt-4 ">
     <div class="text-center">
         <h1 style="width: 50%; margin:auto;">Bienvenido {{user.username}}</h1>
