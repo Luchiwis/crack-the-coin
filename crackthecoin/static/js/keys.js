@@ -124,8 +124,8 @@ function update() {
 
     if (currentFocusIndex != lastFocusIndex) {
       
-      current_element = elements[currentFocusIndex];
       current_element.classList.remove("focused");
+      current_element = elements[currentFocusIndex];
       current_element.classList.add("focused");
       current_element.focus();
     }
