@@ -18,6 +18,7 @@ class Jugador(models.Model):
     soulmate = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
     winner = models.BooleanField(default=False)
     winned_date = models.DateTimeField(null=True, blank=True)
+    saw_credits = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username

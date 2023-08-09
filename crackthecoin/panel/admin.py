@@ -9,7 +9,7 @@ class JugadorInline(admin.ModelAdmin):
     model = Jugador
     can_delete = False
     verbose_name_plural = 'jugadorea'
-    list_display = ['username', 'lock1', 'lock2', 'lock3', 'lock4', 'first_login', 'soulmate', 'winner', 'winned_date']
+    list_display = ['username', 'lock1', 'lock2', 'lock3', 'lock4', 'first_login', 'soulmate', 'winner', 'winned_date', 'saw_credits']
 
 class TokenAdmin(admin.ModelAdmin):
     list_display = ['code', 'used', 'date_used', 'used_by']
