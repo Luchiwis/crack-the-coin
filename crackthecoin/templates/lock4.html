@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div>
-    <h3><a href="userpanel" style="position: fixed; margin-left: 150px; border-radius: 10px;" class="capture">volver</a></h3>
+    <h3><a href="userpanel" style="position: fixed; margin-left: 150px; border-radius: 10px;" class="capture">volver</a>
+    </h3>
 </div>
 <div class="bg-transparent mt-4 ">
     <div class="text-center textos">
@@ -16,12 +18,17 @@
             Cada objeto es un fragmento, una clave dispersa,
             hasta que el candado ceda y se revele la respuesta.</h3>
         <br>
-        <form action="">
-            <h2><input type="text" placeholder="**********" class="text-center capture" maxlength="10"></h2>
+        <form method="post">
+            {% csrf_token %}
+            <h2><input type="text" name="code" placeholder="**********" class="text-center capture" maxlength="10"></h2>
             <button type="submit" class="btn btn-success capture">
                 <h3>Desbloquear</h3>
             </button>
         </form>
+        {% if error %}
+            <h3 class="error-alert">{{ error }}</h3>
+            <audio src="{% static 'audio/error.wav' %}" id="error_audio" autoplay></audio>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

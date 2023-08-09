@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
+
+
 
 {% block content %}
 <div>
@@ -12,7 +17,6 @@
         {% else %}
         <h2>Selecciona un candado para desbloquear</h2>
         {% endif %}
-
 
 
         <!-- ---------------- -->
@@ -101,8 +105,10 @@
         </a>
         {% endif %}
 
-
-
+        <!-- ---------------- -->
+        {% if success %}
+        <audio src="{% static 'audio/desbloqueo.wav' %}" id="desbloqueo_audio" autoplay></audio>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

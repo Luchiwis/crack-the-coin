@@ -40,6 +40,13 @@ def userpanel(request):
     ctx = {"user": user}
     return render(request, "userpanel.html", ctx)
 
+def checkWinner(user):
+    if (user.jugador.lock1 and user.jugador.lock2 and user.jugador.lock3 and user.jugador.lock4) or user.jugador.winner:
+        user.jugador.winner = True
+        user.jugador.save()
+        print("winner:", user.username)
+        redirect("/credits")
+
 @login_required
 def lock1(request):
     if request.method == "POST":
@@ -52,19 +59,41 @@ def lock1(request):
     return render(request, "lock1.html", ctx)
 
 @login_required
-
 def lock2(request):
     return render(request, "lock2.html")
 
 @login_required
-
 def lock3(request):
-    return render(request, "lock3.html")
+    ctx = {"user": request.user}
+    if request.method == "POST":
+        code = request.POST["code"]
+        if code == "AK9JP711":
+            print("lock3 opened by:", request.user.username)
+            request.user.jugador.lock3 = True
+            request.user.jugador.save()
+            ctx["success"] = "Candado 3 abierto"
+            return render(request,"userpanel.html", ctx)
+        else:
+            print("wrong code:", code)
+            ctx["error"] = "Código incorrecto"
+
+    return render(request, "lock3.html", ctx)
 
 @login_required
-
 def lock4(request):
-    return render(request, "lock4.html")
+    ctx = {"user": request.user}
+    if request.method == "POST":
+        code = request.POST["code"]
+        if code == "aezakmi":
+            print("lock4 opened by:", request.user.username)
+            request.user.jugador.lock4 = True
+            request.user.jugador.save()
+            ctx["success"] = "Candado 4 abierto"
+            return render(request,"userpanel.html", ctx) #atado con alambre
+        else:
+            print("wrong code:", code)
+            ctx["error"] = "Código incorrecto"
+    return render(request, "lock4.html", ctx)
 
 @login_required
 def credits(request):

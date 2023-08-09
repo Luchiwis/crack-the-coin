@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div>
@@ -15,12 +16,17 @@
             Explora ese rincón donde el suelo se besa,
             y desvela el enigma que aguarda en su promesa.</h3>
         <br>
-        <form action="">
-            <h2><input type="text" placeholder="**********" class="text-center capture" maxlength="10"></h2>
+        <form method="post">
+            {% csrf_token %}
+            <h2><input type="text" name="code" placeholder="**********" class="text-center capture" maxlength="10"></h2>
             <button type="submit" class="btn btn-success capture">
                 <h3>Desbloquear</h3>
             </button>
         </form>
+        {% if error %}
+            <h3 class="error-alert">{{ error }}</h3>
+            <audio src="{% static 'audio/error.wav' %}" id="error_audio" autoplay></audio>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
