@@ -3,6 +3,7 @@ const elements = document.querySelectorAll(".capture");
 
 // Set the initial focus index to the first element
 let currentFocusIndex = 0;
+let lastFocusIndex = 0;
 let current_element = elements[currentFocusIndex];
 current_element.classList.add("focused");
 
@@ -19,7 +20,7 @@ let releasedButtons = {
 };
 
 function audioPlay(audioName) {
-  audio = document.querySelector("#" + audioName + "_audio")
+  audio = document.querySelector("#" + audioName + "_audio");
   audio.currentTime = 0;
   audio.play();
 }
@@ -50,8 +51,7 @@ function backspace() {
     current_element.value.length > 0
   ) {
     current_element.value = current_element.value.slice(0, -1);
-  }
-  else if (current_element.value.length <= 0){
+  } else if (current_element.value.length <= 0) {
     audioPlay("error");
   }
 }
@@ -121,10 +121,15 @@ function update() {
     } else if (currentFocusIndex >= elements.length) {
       currentFocusIndex = 0;
     }
-    current_element.classList.remove("focused");
-    current_element = elements[currentFocusIndex];
-    current_element.classList.add("focused");
-    current_element.focus();
+
+    if (currentFocusIndex != lastFocusIndex) {
+      
+      current_element = elements[currentFocusIndex];
+      current_element.classList.remove("focused");
+      current_element.classList.add("focused");
+      current_element.focus();
+    }
+    lastFocusIndex = currentFocusIndex;
   }
   requestAnimationFrame(update);
 }
