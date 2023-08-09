@@ -22,7 +22,7 @@ class Jugador(models.Model):
     def __str__(self):
         return self.username
 
-class token_code(models.Model):
+class Token(models.Model):
     code = models.CharField(max_length=100)
     used = models.BooleanField(default=False)
     date_used = models.DateTimeField(null=True, blank=True)

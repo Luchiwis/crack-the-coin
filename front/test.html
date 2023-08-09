@@ -5,6 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .error-alert {
+            position: relative;
+            width: 300px;
+            padding: 10px;
+            color: #f44336;
+            border-radius: 5px;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-5px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -13,6 +46,8 @@
     <h1 class="capture">asdawd</h1>
     <h1 class="capture">asdawd</h1>
     <input type="text" class="capture" name="" id="">
+
+    <h3 class="error-alert">asdasd</h3>
 
     <!-- <script src="test.js"></script> -->
     <!-- <script src="js/keys.js"></script> -->

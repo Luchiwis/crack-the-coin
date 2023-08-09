@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="text-center textos">
@@ -26,7 +27,8 @@
     </form>
 
     {% if error %}
-        <h3>{{ error }}</h3>
+    <h3 class="error-alert">{{ error }}</h3>
+    <audio src="{% static 'audio/error.wav' %}" id="error_audio" autoplay></audio>
     {% endif %}
 </div>
 </div>
