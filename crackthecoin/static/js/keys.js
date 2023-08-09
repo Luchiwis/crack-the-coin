@@ -18,6 +18,10 @@ let releasedButtons = {
   "Right": true,
 };
 
+let lastPressedTimestamp = getCurrentTimestamp();
+function getCurrentTimestamp() {
+  return new Date().getTime();
+}
 
 window.addEventListener("gamepadconnected", (event) => {
   console.log("A gamepad connected:");
@@ -42,7 +46,7 @@ function backspace() {
 function update() {
   gamepad = navigator.getGamepads()[controllerIndex];
 
-  if (gamepad) {
+  if (gamepad && (!lastPressedTimestamp || getCurrentTimestamp() - lastPressedTimestamp > 100)) {
     if (gamepad.buttons[0].pressed && releasedButtons["A"]) {
       console.log("A pressed");
       current_element.click();
