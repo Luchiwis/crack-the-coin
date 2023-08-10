@@ -17,7 +17,7 @@ function createBinaryBackground() {
   const binaryBackground = document.createElement('div');
   binaryBackground.classList.add('binary-background');
 
-  const lines = Math.floor((window.innerHeight/100)+1); // Adjust line count based on screen height
+  const lines = Math.floor(window.innerHeight); // Adjust line count based on screen height
   for (let i = 0; i < lines; i++) {
     const binaryText = document.createElement('div');
     binaryText.classList.add('binary-text');
