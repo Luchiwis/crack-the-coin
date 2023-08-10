@@ -3,18 +3,21 @@
 
 {% block content %}
 <div>
-    <h3><a href="userpanel" style="position: fixed; margin-left: 150px; border-radius: 10px;" class="capture">volver</a></h3>
+    <h3><a href="userpanel" style="position: fixed; margin-left: 150px; border-radius: 10px;" class="capture">volver</a>
+    </h3>
 </div>
 <div class="bg-transparent mt-4 ">
     <div class="text-center textos">
         <h1>Candado 3</h1>
-        <h2>Busqueda del tesoro</h2>
-        <h3>En el lugar donde reposa el descanso,
-            donde los pies encuentran su arrullo manso,
-            allí aguarda la pista, sutil y serena,
-            bajo la silla, entre la madera amena.
-            Explora ese rincón donde el suelo se besa,
-            y desvela el enigma que aguarda en su promesa.</h3>
+            <h2>Busqueda del tesoro</h2>
+            <h3>Este candado se desbloquea completando una busqueda del tesoro. <br>Antes de empezar tené en cuenta que
+                este
+                candado se resuelve grupalmente ya que la contraseña es la misma para todos. <br>
+                Procura dejar las pistas donde las encontraste para que todos puedan resolver este candado. <br>
+                Cabe recalcar que no está permitido subir al primer piso.
+                <br><br>
+                Sin mas preambulos, la primera pista se encuentra debajo de una silla...
+            </h3>
         <br>
         <form method="post">
             {% csrf_token %}
@@ -24,8 +27,8 @@
             </button>
         </form>
         {% if error %}
-            <h3 class="error-alert">{{ error }}</h3>
-            <audio src="{% static 'audio/error.wav' %}" id="error_audio" autoplay></audio>
+        <h3 class="error-alert">{{ error }}</h3>
+        <audio src="{% static 'audio/error.wav' %}" id="error_audio" autoplay></audio>
         {% endif %}
     </div>
 </div>
