@@ -3,8 +3,19 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from . import models
 from django.utils import timezone
-from scripts.dropcoin import dropCoin
+from scripts.dropcoin import dropcoin
 # Create your views here.
+
+def checkWinner(user):
+    if ((user.jugador.lock1) and 
+         (user.jugador.lock2) and 
+         (user.jugador.lock3) and 
+         (user.jugador.lock4) and not user.jugador.winner):
+        user.jugador.winner = True
+        user.jugador.winned_date = timezone.now()
+        user.jugador.save()
+        print("winner:", user.username)
+        return True
 
 def login(request):
     if request.method == "POST":
@@ -31,7 +42,7 @@ def login(request):
 
 @login_required
 def userpanel(request):
-    if checkWinner(request.user):
+    if checkWinner(request.user) and not request.user.jugador.saw_credits:
         return redirect("/credits")
     
     user = request.user
@@ -43,13 +54,6 @@ def userpanel(request):
         print("soulmate of ", user.username ," set to:", user.jugador.soulmate.username)
     ctx = {"user": user}
     return render(request, "userpanel.html", ctx)
-
-def checkWinner(user):
-    if ((user.jugador.lock1 and user.jugador.lock2 and user.jugador.lock3 and user.jugador.lock4) or user.jugador.winner) and not user.jugador.saw_credits:
-        user.jugador.winner = True
-        user.jugador.save()
-        print("winner:", user.username)
-        return True
 
 @login_required
 def lock1(request):
@@ -85,7 +89,7 @@ def lock2(request):
             return render(request,"userpanel.html", ctx)
         elif token.exists() and token.get().used:
             print("token already used:", code)
-            ctx["error"] = "Código ya utilizado por " + token.get().used_by.username
+            ctx["error"] = "Este código ya fue utilizado por " + token.get().used_by.username
         else:
             print("wrong code:", code)
             ctx["error"] = "Código incorrecto"
@@ -129,4 +133,6 @@ def lock4(request):
 def credits(request):
     request.user.jugador.saw_credits = True
     request.user.jugador.save()
+    print("credits seen by:", request.user.username)
+    dropcoin()
     return render(request, "creditos.html")

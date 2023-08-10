@@ -108,6 +108,11 @@
         <!-- ---------------- -->
         {% if success %}
         <audio src="{% static 'audio/desbloqueo.wav' %}" id="desbloqueo_audio" autoplay></audio>
+        <script>
+            setTimeout(function() {
+                window.location.href = "userpanel";
+            }, 700);
+        </script>
         {% endif %}
     </div>
 </div>
