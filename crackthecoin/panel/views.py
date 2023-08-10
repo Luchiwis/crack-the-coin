@@ -53,24 +53,51 @@ def checkWinner(user):
 
 @login_required
 def lock1(request):
+    ctx = {"user": request.user}
     if request.method == "POST":
         code = request.POST["code"]
-        
-    print("showing lock1 for:", request.user.username)
 
-    ctx = {"user": request.user}
+        if request.user.jugador.soulmate.user.check_password(code):
+            print("lock1 opened by:", request.user.username)
+            request.user.jugador.lock1 = True
+            request.user.jugador.save()
+            ctx["success"] = "Candado 1 abierto"
+            return render(request,"userpanel.html", ctx)
+        else:
+            print("wrong code:", code)
+            ctx["error"] = "Código incorrecto"
+
     return render(request, "lock1.html", ctx)
 
 @login_required
 def lock2(request):
-    return render(request, "lock2.html")
+    ctx = {"user": request.user}
+    if request.method == "POST":
+        code = request.POST["code"]
+        token = models.Token.objects.filter(code=code)
+
+        if token.exists() and not token.get().used:
+            print("lock2 opened by:", request.user.username)
+            request.user.jugador.lock2 = True
+            request.user.jugador.save()
+            token.update(used=True, date_used=timezone.now(), used_by=request.user)
+            ctx["success"] = "Candado 2 abierto"
+            return render(request,"userpanel.html", ctx)
+        elif token.exists() and token.get().used:
+            print("token already used:", code)
+            ctx["error"] = "Código ya utilizado por " + token.get().used_by.username
+        else:
+            print("wrong code:", code)
+            ctx["error"] = "Código incorrecto"
+
+    return render(request, "lock2.html", ctx)
 
 @login_required
 def lock3(request):
     ctx = {"user": request.user}
     if request.method == "POST":
         code = request.POST["code"]
-        if code == "AK9JP711":
+        if code == "aezakmi":
             print("lock3 opened by:", request.user.username)
             request.user.jugador.lock3 = True
             request.user.jugador.save()
@@ -87,7 +114,7 @@ def lock4(request):
     ctx = {"user": request.user}
     if request.method == "POST":
         code = request.POST["code"]
-        if code == "aezakmi":
+        if code == "AK9JP711":
             print("lock4 opened by:", request.user.username)
             request.user.jugador.lock4 = True
             request.user.jugador.save()

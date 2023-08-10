@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}}
 
 {% block content %}
 <div>
@@ -12,12 +13,17 @@
         <h3>Si logras ganarle en algun juego de mesa, o ganar en el mismo equipo de algun host, este te dará una
             contraseña que podes utilizar para abrir este candado</h3>
         <br>
-        <form action="">
+        <form method="post">
+            {% csrf_token %}
             <h2><input type="text" name="code" placeholder="**********" class="text-center capture" maxlength="10"></h2>
             <button type="submit" class="btn btn-success capture">
                 <h3>Desbloquear</h3>
             </button>
         </form>
+        {% if error %}
+            <h3 class="error-alert">{{ error }}</h3>
+            <audio src="{% static 'audio/error.wav' %}" id="error_audio" autoplay></audio>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
