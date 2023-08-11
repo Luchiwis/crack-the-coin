@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +21,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
         }
 
         h2,
@@ -26,13 +29,10 @@
             text-decoration: underline;
         }
 
-        h3 {
-            margin-left: 40px;
-        }
-
         .credits {
             display: inline-block;
-            animation: scroll-credits 60s linear infinite;
+            animation: scroll-credits 68s linear ;
+            transform: translateY(-50%);
         }
 
         .credit {
@@ -43,19 +43,22 @@
 
         @keyframes scroll-credits {
             0% {
-                transform: translateY(60%);
+                transform: translateY(63%);
             }
 
             100% {
-                transform: translateY(-100%);
+                animation-play-state: paused;
+                transform: translateY(-50%);
             }
+
         }
     </style>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Creditos</title>
 </head>
 
 <body>
+    <audio src="{% static 'audio/creditos.mp3' %}" autoplay></audio>
     <div class="credits-container">
         <div class="credits">
             <div class="credit">
@@ -68,7 +71,7 @@
                 <h3>-Lucio</h3>
             </div>
             <div class="credit">
-                <h2>Produccion:</h2>
+                <h2>Produccion general:</h2>
             </div>
             <div class="credit">
                 <h3>-Lucio</h3>
@@ -83,10 +86,16 @@
                 <h3>-Faculo</h3>
             </div>
             <div class="credit">
+                <h2>Audio y efectos:</h2>
+            </div>
+            <div class="credit">
+                <h3>-Ivan Ruiz</h3>
+            </div>
+            <div class="credit">
                 <h2>Rompecabezas</h2>
             </div>
             <div class="credit">
-                <h3>-El papá de Bauti</h3>
+                <h3>-Cami Peisajovich</h3>
             </div>
             <div class="credit">
                 <h2>Busqueda del tesoro</h2>
@@ -108,6 +117,9 @@
             </div>
             <div class="credit">
                 <h3>-Ivanna</h3>
+            </div>
+            <div class="credit">
+                <h3>-Bauti</h3>
             </div>
             <div class="credit">
                 <h2>Programación</h2>
@@ -163,19 +175,24 @@
             <div class="credit">
                 <h3>-Ivanna</h3>
             </div>
-        </div>
-        <div class="credit">
-            <h2>Agradecimientos especiales:</h2>
-        </div>
-        <div class="credit">
-            <h3>-ChatGPT</h3>
+            <div style="height: 600px;">
+            </div>
+            <div class="credit">
+                <h1>LucioFest 2023</h1>
+                <h3 id="LucioFest">Presione una tecla para volver</h3>
+            </div>
+
+
+
+
         </div>
     </div>
     <script>
         //exit pressing any key
         document.addEventListener("keydown", function (event) {
-            window.location.href = "index";
-        }); 
+            window.location.href = "/userpanel";
+        });
+        
     </script>
 </body>
 

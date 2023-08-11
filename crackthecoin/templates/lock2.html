@@ -2,6 +2,8 @@
 {% load static %}}
 
 {% block content %}
+<audio src="{% static 'audio/amigoInvisible.mp3' %}" autoplay></audio>
+
 <div>
     <h3><a href="userpanel" style="position: fixed; margin-left: 150px; border-radius: 10px;" class="capture">volver</a></h3>
 </div>
@@ -22,7 +24,7 @@
         </form>
         {% if error %}
             <h3 class="error-alert">{{ error }}</h3>
-            <audio src="{% static 'audio/error.wav' %}" id="error_audio" autoplay></audio>
+            <audio src="{% static 'audio/error.mp3' %}" id="error_audio" autoplay></audio>
         {% endif %}
     </div>
 </div>

@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+
 <div class="text-center textos">
     <h1>Crack the <span class="vim-caret">coin</span></h1>
     <h2 class="mt-3 text-mono text-success">Ingrese su nombre de invitado y contraseña</h2>
@@ -28,8 +29,9 @@
 
     {% if error %}
     <h3 class="error-alert">{{ error }}</h3>
-    <audio src="{% static 'audio/error.wav' %}" id="error_audio" autoplay></audio>
+    <audio src="{% static 'audio/error.mp3' %}" id="error_audio" autoplay></audio>
     {% endif %}
 </div>
-</div>
+<audio src="{% static 'audio/arkakra.mp3' %}" id="music" autoplay loop></audio>
+
 {% endblock %}

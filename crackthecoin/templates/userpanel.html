@@ -6,6 +6,8 @@
 
 
 {% block content %}
+<audio src="{% static 'audio/panel.mp3' %}" autoplay></audio>
+
 <div>
     <h3><a href="/" style="position: fixed; margin-left: 150px; border-radius: 10px;" class="capture">salir</a></h3>
 </div>
@@ -107,7 +109,7 @@
 
         <!-- ---------------- -->
         {% if success %}
-        <audio src="{% static 'audio/desbloqueo.wav' %}" id="desbloqueo_audio" autoplay></audio>
+        <audio src="{% static 'audio/desbloqueo.mp3' %}" id="desbloqueo_audio" autoplay></audio>
         <script>
             setTimeout(function() {
                 window.location.href = "userpanel";
