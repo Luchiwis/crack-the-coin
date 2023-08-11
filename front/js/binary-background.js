@@ -1,7 +1,7 @@
 // Generate the binary code for the background
 function generateBinaryCode() {
   const binaryChars = ['0', '1'];
-  const binaryCodeLength = Math.floor(window.innerWidth); // Adjust the length as needed
+  const binaryCodeLength = Math.floor((window.innerWidth/39)+5); // Adjust the length as needed
   let binaryCode = '';
 
   for (let i = 0; i < binaryCodeLength; i++) {
@@ -17,7 +17,7 @@ function createBinaryBackground() {
   const binaryBackground = document.createElement('div');
   binaryBackground.classList.add('binary-background');
 
-  const lines = Math.floor((window.innerHeight/100)+1); // Adjust line count based on screen height
+  const lines = Math.floor((window.innerHeight/100)+5); // Adjust line count based on screen height
   for (let i = 0; i < lines; i++) {
     const binaryText = document.createElement('div');
     binaryText.classList.add('binary-text');
