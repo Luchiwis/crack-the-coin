@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+<audio src="{% static 'audio/arkakra.mp3' %}" id="music" autoplay loop></audio>
 
 <div class="text-center textos">
     <h1>Crack the <span class="vim-caret">coin</span></h1>
@@ -32,6 +33,4 @@
     <audio src="{% static 'audio/error.mp3' %}" id="error_audio" autoplay></audio>
     {% endif %}
 </div>
-<audio src="{% static 'audio/arkakra.mp3' %}" id="music" autoplay loop></audio>
-
 {% endblock %}
